@@ -2,7 +2,7 @@
 :set tabstop=4
 :set mouse=a
 syntax on
-
+set bs=2
 set shiftwidth=4
 set number
 set showcmd
@@ -11,7 +11,11 @@ set enc=utf8
 set mouse=a
 
 filetype off 
-
+let g:ycm_global_ycm_extra_conf='~/.ycm_extra_conf.py'  "設定全域性配置檔案的路徑
+let g:ycm_seed_identifiers_with_syntax=1    " 語法關鍵字補全
+let g:ycm_confirm_extra_conf=0  " 開啟vim時不再詢問是否載入ycm_extra_conf.py配置
+let g:ycm_key_invoke_completion = '<C-a>' " ctrl + a 觸發補全
+set completeopt=longest,menu
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 cs add $CSCOPE_DB
@@ -25,6 +29,8 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'majutsushi/tagbar'
 "提供多文件同时编辑功能,操作缓存buffer窗口
 Plugin 'minibufexplorerpp'         
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'johngrib/vim-game-code-break'
 let g:miniBufExplMapWindowNavVim = 1 "Ctrl-<hjkl> to move to window 
 let g:miniBufExplTabWrap = 1 " make tabs show complete (no broken on two lines)
 
@@ -58,3 +64,11 @@ nmap ze :cs find e <C-R>=expand("<cword>")<CR><CR>
 nmap zf :cs find f <C-R>=expand("<cfile>")<CR><CR>
 nmap zi :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
 nmap zd :cs find d <C-R>=expand("<cword>")<CR><CR>
+
+
+
+let g:ycm_server_python_interpreter='/usr/bin/python'
+let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
+
+
+
